@@ -23,7 +23,7 @@ function App() {
     setError('');
     setAnalysis(null);
     try {
-      const response = await axios.get(`http://localhost:8888/analyze?access_token=${accessToken}`);
+      const response = await axios.get(`https://spotify-coworker-backend.onrender.com/analyze?access_token=${accessToken}`);
       setAnalysis(response.data);
     } catch (err) {
       setError('An error occurred during analysis. Please try logging in again.');
@@ -38,7 +38,7 @@ function App() {
       <h1>Is Your Spotify "Coworker-Friendly"?</h1>
       {/* Updated description for the new logic */}
       <p>Analyze your music taste based on Spotify's popularity score to see how mainstream your music really is.</p>
-      <a href="http://localhost:8888/login" className="login-button">Connect with Spotify</a>
+      <a href="https://spotify-coworker-backend.onrender.com/login" className="login-button">Connect with Spotify</a>
     </div>
   );
 
