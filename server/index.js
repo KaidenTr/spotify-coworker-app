@@ -15,6 +15,7 @@ const port = process.env.PORT || 8888;
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
+const FRONTEND_URI = process.env.FRONTEND_URI;
 
 app.use(cors());
 
@@ -41,7 +42,7 @@ app.get('/callback', async (req, res) => {
       },
     });
     const { access_token, refresh_token } = response.data;
-    res.redirect(`http://localhost:3000?access_token=${access_token}&refresh_token=${refresh_token}`);
+    res.redirect(`${FRONTEND_URI}?access_token=${access_token}&refresh_token=${refresh_token}`);
   } catch (error) {
     res.send("Error during authentication.");
     console.error("Error in /callback:", error.response ? error.response.data : error.message);
