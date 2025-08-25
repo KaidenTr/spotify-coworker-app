@@ -7,7 +7,7 @@ const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
-const port = 8888;
+const port = process.env.PORT || 8888;
 
 // =================================================================
 //                   ENVIRONMENT VARIABLES
@@ -107,6 +107,6 @@ app.get('/analyze', async (req, res) => {
 // =================================================================
 //                      START THE SERVER
 // =================================================================
-app.listen(port, () => {
-  console.log(`Backend server listening at http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Backend server listening on port ${port}`);
 });
